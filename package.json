@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
     "serve": "vite preview"
   },
   "dependencies": {
@@ -37,7 +37,6 @@
     "unplugin-icons": "^0.12.18",
     "vite": "^2.6.4",
     "vite-plugin-windicss": "^1.5.1",
-    "vue-tsc": "^0.29.5",
     "windicss": "^3.2.1"
   }
 }
