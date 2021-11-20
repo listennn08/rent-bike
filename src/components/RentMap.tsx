@@ -30,7 +30,7 @@ const Map = () => {
    * @param z 縮放大小
    * @returns N/A
    */
-  const callback = (z: number) => ({ coords }: GeolocationPosition) => {
+  const callback = (z?: number) => ({ coords }: GeolocationPosition) => {
     const p: LatLngTuple = [coords.latitude, coords.longitude]
     dispatch(setPosition(p))
     dispatch(setUserPosition(p))
@@ -41,7 +41,7 @@ const Map = () => {
   }
 
   // 取得現在位置
-  const currentPosition = (z: number) => {
+  const currentPosition = (z?: number) => {
     getCurrentPosition(
       callback(z),
       (blocked) => {
@@ -79,7 +79,7 @@ const Map = () => {
   }
 
   useEffect(() => {
-    currentPosition(18)
+    currentPosition()
   }, [])
 
   useEffect(() => {

@@ -1,13 +1,16 @@
+import { LatLngTuple } from 'leaflet'
 import IconTelephone from '~icons/ion/ios-telephone'
 import { RootState } from '@/store'
 import { IAttranctionsSlice } from '@/store/feature/attractions'
 import image from '@/icons/image-1.svg'
 import { IShareSlice } from '@/store/feature/share'
+import { distance } from '@/logic/utils'
 
 const Near = () => {
   const history = useHistory()
 
   const attractions = useSelector<RootState, IAttranctionsSlice>((state) => state.attractions)
+  const position = useSelector<RootState, LatLngTuple>((state) => state.map.position)
   const {
     mode,
     type,
@@ -44,7 +47,7 @@ const Near = () => {
                       />
                       <div className="flex flex-col flex-1">
                         <div className="flex justify-end text-primary text-sm mb-1.5">
-                          1.1km
+                          {distance(position[0], position[1], el.Position?.PositionLat!, el.Position?.PositionLon!)} km
                         </div>
                         <h3 className="mb-auto">{el.Name!}</h3>
                         <div className="flex items-center text-secondary text-sm">
