@@ -32,7 +32,6 @@ const Map = () => {
    */
   const callback = (z: number) => ({ coords }: GeolocationPosition) => {
     const p: LatLngTuple = [coords.latitude, coords.longitude]
-    console.log(p)
     dispatch(setPosition(p))
     dispatch(setUserPosition(p))
     dispatch(setOpenLocate(true))
@@ -84,7 +83,6 @@ const Map = () => {
   }, [])
 
   useEffect(() => {
-    console.log(position)
     map.flyTo(position, zoom)
   }, [position])
 
