@@ -8,6 +8,7 @@
 - TypeScript
 - Vite
 - React
+- Redux
 - Leaflet
 - WindiCSS
 - RxJs
