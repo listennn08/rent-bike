@@ -19,7 +19,6 @@ function BaseNav({ children }: Props) {
     <nav className="
       rounded-full
       relative
-      w-2/12
       h-full
       bg-white 
       hidden lg:flex
