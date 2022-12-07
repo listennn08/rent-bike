@@ -1,5 +1,8 @@
 node_modules
-.DS_Store
-dist
-dist-ssr
-*.local
+
+/.cache
+/public/build
+/.netlify
+.env
+
+/app/styles/tailwind.css

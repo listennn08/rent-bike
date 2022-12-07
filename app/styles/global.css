@@ -1,0 +1,19 @@
+:root {
+  --primary: #fed801;
+  --secondary: #7a7a7a;
+}
+
+body {
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: var(--primary);
+}
