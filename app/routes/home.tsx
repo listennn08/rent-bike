@@ -25,7 +25,7 @@ export const HomeContext = createContext<{
   bikeRoutes: CustomBikeShape[];
   setBikeRoutes: Dispatch<SetStateAction<CustomBikeShape[]>>;
   userPosition?: LatLngTuple;
-  currentPosition: (n?: number) => void;
+  currentPosition: () => void;
   zoom: number;
   setZoom: Dispatch<SetStateAction<number>>;
   position?: LatLngTuple;

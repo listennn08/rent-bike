@@ -1,5 +1,6 @@
 import { memo, useContext, useEffect, useRef } from "react";
 import { Marker, Popup, useMap } from "react-leaflet";
+import { isEqual } from "lodash";
 import { Location } from "~/assets/icons/location";
 import BaseIcon from "../base/icon";
 import { HomeContext } from "~/routes/home";
@@ -12,11 +13,26 @@ interface IProps {
   stationIdx: number;
   openLocate: boolean;
 }
+
 const Map = ({ station = [], stationIdx, openLocate }: IProps) => {
-  const { mode, userPosition, position, currentPosition, zoom } =
+  const { mode, userPosition, position, setPosition, zoom, setZoom } =
     useContext(HomeContext);
   const map = useMap();
+  map.addEventListener("dragend", (e) => {
+    const center = e.target.getCenter();
+    if (!isEqual(position, center)) {
+      setPosition([center.lat, center.lng]);
+    }
+  });
+  map.addEventListener("zoomend", (e) => {
+    const zoom = e.target.getZoom();
+    setZoom(zoom);
+  });
+
   const popupRefs = useRef<PurePopup[]>([]);
+  const flyToCurrentPosition = () => {
+    map.flyTo(userPosition!, 18);
+  };
 
   useEffect(() => {
     if (position) {
@@ -73,7 +89,7 @@ const Map = ({ station = [], stationIdx, openLocate }: IProps) => {
           z-999
           flex flex-col items-center justify-center
         "
-        onClick={() => currentPosition(18)}
+        onClick={flyToCurrentPosition}
       >
         <Location className="mb-1" />
         <span className="text-xs">附近</span>

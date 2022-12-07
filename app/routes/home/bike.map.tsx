@@ -122,6 +122,10 @@ const Bikemap = () => {
     currentPosition();
   }, [currentPosition]);
 
+  useEffect(() => {
+    if (position) fetchNearStationData(position[0], position[1]);
+  }, [position, fetchNearStationData]);
+
   return (
     <div className="relative">
       <ClientOnly>
