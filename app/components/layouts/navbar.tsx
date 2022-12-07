@@ -55,11 +55,11 @@ const NavbarContent = () => {
             還車
           </>
         </BaseNav>
-        <BaseSwitch
+        <div className="w-[200px]" />
+        {/* <BaseSwitch
           toggle={showBikeRoute}
           setToggle={(v) => setShowBikeRoute(v)}
-          // setToggle={(v) => dispatch(setShowBikeRoute(v))}
-        />
+        /> */}
       </>
     );
 

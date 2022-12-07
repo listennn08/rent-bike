@@ -1,5 +1,5 @@
 [build]
-  command = "remix build"
+  command = "run-s \"build:*\""
   publish = "public"
 
 [dev]
